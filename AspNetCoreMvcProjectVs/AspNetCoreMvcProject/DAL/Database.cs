@@ -1,0 +1,16 @@
+﻿using AspNetCoreMvcProject.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace AspNetCoreMvcProject.DAL
+{
+    public class Database:DbContext
+    {
+        public Database(DbContextOptions<Database> options) : base(options){ }
+            public DbSet<CourseCard> CourseCards { get; set; }
+    
+    }
+}

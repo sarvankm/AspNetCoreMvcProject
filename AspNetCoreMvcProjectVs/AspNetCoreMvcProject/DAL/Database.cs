@@ -10,7 +10,7 @@ namespace AspNetCoreMvcProject.DAL
     public class Database:DbContext
     {
         public Database(DbContextOptions<Database> options) : base(options){ }
-            public DbSet<CourseCard> CourseCards { get; set; }
+            public DbSet<Course> CourseCards { get; set; }
     
     }
 }

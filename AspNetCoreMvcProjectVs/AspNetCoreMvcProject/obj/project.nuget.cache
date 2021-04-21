@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HDiTQOAGdFlsHQgOAADVpLbqqyEN2AUW+e9zz7lRAk0bTiE22C2eWDce29+s9Bpmu0AUKaNSbzuvFusQbEcDgw==",
+  "dgSpecHash": "71JO8Q9De4T9cf0dRCieFr1PuAY1IQTYKRU6sSuUiiu0tGq1+1BHLS9vs46j+Vz6I2WL0ksXjJDYFaS3EnI5yA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
+  "projectFilePath": "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IDEAPAD\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.14\\microsoft.aspnetcore.cryptography.internal.3.1.14.nupkg.sha512",
     "C:\\Users\\IDEAPAD\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.14\\microsoft.aspnetcore.cryptography.keyderivation.3.1.14.nupkg.sha512",

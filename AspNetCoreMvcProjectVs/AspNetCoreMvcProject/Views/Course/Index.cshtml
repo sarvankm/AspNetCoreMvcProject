@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CourseCard>
+﻿@model IEnumerable<CourseVM>
 @{
     ViewData["Title"] = "Index";
 }
@@ -39,7 +39,7 @@
         </div>
         <div class="row">
           
-            @foreach (CourseCard card in Model)
+            @foreach (CourseVM card in Model)
             {
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="single-course mb-70">
@@ -54,7 +54,7 @@
                         <div class="course-content">
                             <h3><a href="course-details.html">@card.CourseName</a></h3>
                             <p>@card.CourseContent</p>
-                            <a class="default-btn" href="course-details.html">read more</a>
+                            <a class="default-btn" asp-action="CourseDetails" asp-route-id="@card.Id">read more</a>
                         </div>
                     </div>
                 </div>

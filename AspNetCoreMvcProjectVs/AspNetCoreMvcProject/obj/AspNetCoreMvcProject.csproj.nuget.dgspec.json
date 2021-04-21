@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj": {}
+    "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj": {
+    "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
+        "projectUniqueName": "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
         "projectName": "AspNetCoreMvcProject",
-        "projectPath": "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
+        "projectPath": "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\AspNetCoreMvcProject.csproj",
         "packagesPath": "C:\\Users\\IDEAPAD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IDEAPAD\\Desktop\\p217_be_19-04-2021_asp-net-project-sarvankm\\AspNetCoreMvcProject\\AspNetCoreMvcProject\\obj\\",
+        "outputPath": "C:\\Users\\IDEAPAD\\Desktop\\AspNetCoreMvcProject\\AspNetCoreMvcProjectVs\\AspNetCoreMvcProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\IDEAPAD\\AppData\\Roaming\\NuGet\\NuGet.Config",

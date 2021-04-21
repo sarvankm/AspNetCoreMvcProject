@@ -4,14 +4,16 @@ using AspNetCoreMvcProject.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspNetCoreMvcProject.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20210421104448_RemovedStartDateMonth")]
+    partial class RemovedStartDateMonth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,42 +145,6 @@ namespace AspNetCoreMvcProject.Migrations
                     b.ToTable("EventSpeakers");
                 });
 
-            modelBuilder.Entity("AspNetCoreMvcProject.Models.Skills", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CommunicationSkillPercent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DesignSkillPercent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DevelopmentSkillPercent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("InnovationSkillPercent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LanguageSkillPercent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamLeaderSkillPercent")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeacherId")
-                        .IsUnique();
-
-                    b.ToTable("Skills");
-                });
-
             modelBuilder.Entity("AspNetCoreMvcProject.Models.Speaker", b =>
                 {
                     b.Property<int>("Id")
@@ -205,81 +171,6 @@ namespace AspNetCoreMvcProject.Migrations
                     b.ToTable("Speakers");
                 });
 
-            modelBuilder.Entity("AspNetCoreMvcProject.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("About")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactInfoMail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactInfoNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContactInfoSkype")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degree")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Experience")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Faculty")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Hobbies")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnFacebook")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnPinterest")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnTwitter")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnVimeo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Profession")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SkillId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
-                });
-
             modelBuilder.Entity("AspNetCoreMvcProject.Models.EventSpeaker", b =>
                 {
                     b.HasOne("AspNetCoreMvcProject.Models.Event", "Event")
@@ -291,15 +182,6 @@ namespace AspNetCoreMvcProject.Migrations
                     b.HasOne("AspNetCoreMvcProject.Models.Speaker", "Speaker")
                         .WithMany("EventSpeakers")
                         .HasForeignKey("SpeakerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("AspNetCoreMvcProject.Models.Skills", b =>
-                {
-                    b.HasOne("AspNetCoreMvcProject.Models.Teacher", "Teacher")
-                        .WithOne("Skills")
-                        .HasForeignKey("AspNetCoreMvcProject.Models.Skills", "TeacherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

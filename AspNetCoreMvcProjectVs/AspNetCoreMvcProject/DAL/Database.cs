@@ -14,6 +14,8 @@ namespace AspNetCoreMvcProject.DAL
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<EventSpeaker> EventSpeakers { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Skills> Skills { get; set; }
 
 
     }

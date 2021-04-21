@@ -18,6 +18,7 @@ namespace AspNetCoreMvcProject.Models
         public string CourseContent { get; set; }
         [Required,StringLength(1000)]
         public string Image { get; set; }
+        
         [Required]
         public string AboutCourse { get; set; }
         [Required]

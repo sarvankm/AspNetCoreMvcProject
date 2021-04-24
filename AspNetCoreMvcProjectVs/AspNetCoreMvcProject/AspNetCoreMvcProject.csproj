@@ -11,6 +11,10 @@
     <Compile Remove="Migrations\20210421075136_AddedDatetimeType.Designer.cs" />
     <Compile Remove="Migrations\20210421230954_AddedBlogAndCommentFormTable.cs" />
     <Compile Remove="Migrations\20210421230954_AddedBlogAndCommentFormTable.Designer.cs" />
+    <Compile Remove="Migrations\20210424091817_AddedAboutCourse.cs" />
+    <Compile Remove="Migrations\20210424091817_AddedAboutCourse.Designer.cs" />
+    <Compile Remove="Migrations\20210424091920_AddedAboutCourse.cs" />
+    <Compile Remove="Migrations\20210424091920_AddedAboutCourse.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

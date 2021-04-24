@@ -20,6 +20,9 @@ namespace AspNetCoreMvcProject.DAL
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<CommentForm> CommentForms { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<AboutCourse> AboutCourses { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Notice> Notices { get; set; }
 
 
     }

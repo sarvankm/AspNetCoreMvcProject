@@ -1,4 +1,5 @@
 ﻿using AspNetCoreMvcProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace AspNetCoreMvcProject.DAL
         public DbSet<EventSpeaker> EventSpeakers { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Skills> Skills { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<CommentForm> CommentForms { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
 
     }

@@ -4,14 +4,16 @@ using AspNetCoreMvcProject.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspNetCoreMvcProject.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20210422112703_AddedContactTable")]
+    partial class AddedContactTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,7 +83,8 @@ namespace AspNetCoreMvcProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BlogId");
+                    b.HasIndex("BlogId")
+                        .IsUnique();
 
                     b.ToTable("CommentForms");
                 });
@@ -371,8 +374,8 @@ namespace AspNetCoreMvcProject.Migrations
             modelBuilder.Entity("AspNetCoreMvcProject.Models.CommentForm", b =>
                 {
                     b.HasOne("AspNetCoreMvcProject.Models.Blog", "Blog")
-                        .WithMany("CommentForms")
-                        .HasForeignKey("BlogId")
+                        .WithOne("CommentForm")
+                        .HasForeignKey("AspNetCoreMvcProject.Models.CommentForm", "BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

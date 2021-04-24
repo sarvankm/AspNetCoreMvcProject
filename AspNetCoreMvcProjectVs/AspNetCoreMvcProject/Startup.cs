@@ -1,7 +1,9 @@
 using AspNetCoreMvcProject.DAL;
+using AspNetCoreMvcProject.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,8 @@ namespace AspNetCoreMvcProject
             {
                 options.UseSqlServer(_configuration.GetConnectionString("default"));
             });
+
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -42,7 +46,7 @@ namespace AspNetCoreMvcProject
 
             app.UseRouting();
             app.UseStaticFiles();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

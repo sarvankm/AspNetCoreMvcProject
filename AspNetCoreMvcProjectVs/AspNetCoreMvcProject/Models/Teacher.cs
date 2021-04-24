@@ -40,8 +40,7 @@ namespace AspNetCoreMvcProject.Models
         public string OwnVimeo { get; set; }
         [Required]
         public string OwnTwitter { get; set; }
-        [Required]
-        public int SkillId { get; set; }
+       
         [Required]
         public Skills Skills { get; set; }
     }

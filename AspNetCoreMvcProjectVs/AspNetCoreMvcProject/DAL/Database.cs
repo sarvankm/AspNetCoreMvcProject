@@ -23,6 +23,8 @@ namespace AspNetCoreMvcProject.DAL
         public DbSet<AboutCourse> AboutCourses { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Notice> Notices { get; set; }
+        public DbSet<HomeSlider> HomeSliders { get; set; }
+        public DbSet<ShortInfo> ShortInfos { get; set; }
 
 
     }

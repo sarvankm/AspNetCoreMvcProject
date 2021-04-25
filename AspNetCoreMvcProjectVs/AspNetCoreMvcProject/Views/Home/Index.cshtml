@@ -1,0 +1,286 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+    int counter = 0;
+}
+
+<!-- Background Area Start -->
+<section id="slider-container" class="slider-area">
+    <div class="slider-owl owl-theme owl-carousel">
+        <!-- Start Slingle Slide -->
+
+        @foreach (HomeSlider item in Model.HomeSliders)
+        {
+            <div class="single-slide item" style="background-image: url(img/slider/@item.Image)">
+                <div class="slider-content-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-md-offset-left-5">
+                                <div class="slide-content-wrapper">
+                                    <div class="slide-content">
+                                        <h3>@item.Title</h3>
+                                        <p>@item.Description</p>
+                                        <a class="default-btn" asp-controller="About" asp-action="Index">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+     
+    </div>
+</section>
+<!-- Background Area End -->
+<!-- Notice Start -->
+<section class="notice-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-left">
+                    <h3>notice board</h3>
+                    @foreach (Notice item in Model.Notices)
+                    {
+                        <div class="single-notice-left mb-25 pb-25">
+                            <h4>@item.NoticeDate.ToString("d, MMMM yyyy")</h4>
+                            <p>@item.NoticeText</p>
+                        </div>
+
+                    }
+                
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="notice-right">
+                    @foreach (ShortInfo item in Model.ShortInfos)
+                    {
+                        <div class="single-notice-right mb-25 pb-25">
+                            <h3>@item.Title</h3>
+                            <p>@item.Description</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Notice End -->
+<!-- Choose Start -->
+<section class="choose-area pb-85 pt-77">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-left-4 col-sm-8 col-md-offset-left-4">
+                <div class="choose-content text-left">
+                    <h2>WHY YOU CHOOSE EDUHOME ?</h2>
+                    <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings  the master-builder of humanit happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because. </p>
+                    <p class="choose-option">I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings  the master-builder. </p>
+                    <a class="default-btn" href="course-details.html">view courses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Choose Area End -->
+<!-- Courses Area Start -->
+<div class="courses-area pt-150 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="img/icon/section.png" alt="section-title">
+                    <h2>COURSES WE OFFER</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           
+            @foreach (CourseVM item in Model.CourseVMs)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a asp-controller="Course" asp-action="Index">
+                                <img src="img/course/@item.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a asp-controller="Course" asp-action="Index">@item.CourseName</a></h3>
+                            <p>@item.CourseContent</p>
+                            <a class="default-btn" asp-controller="Course" asp-action="CourseDetails" asp-route-id="@item.Id">read more</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Courses Area End -->
+<!-- Event Area Start -->
+<div class="event-area one text-center pt-140 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title">
+                    <img src="img/icon/section.png" alt="section-title">
+                    <h2>UPCOMMING EVENTS</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @do
+            {
+                
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    @for (int i = 0; i < Model.EventVMs.Count(); i++)
+                    {
+                        i = counter;
+
+                        if (counter % 4 != 0 || counter==0)
+                        {
+                            if ((i-1)% 4==0 && (i-1)!=0 && counter % 4 != 0)
+                            {
+                                i = counter - 1;
+                                
+                                
+                            }
+                            <div class="single-event mb-35">
+                                <div class="event-date">
+                                    <h3><a asp-controller="Event" asp-action="EventDetails" asp-route-id="@Model.EventVMs.ElementAt(i).Id">@Model.EventVMs.ElementAt(i).StartDateDayMonth.Day <span>@Model.EventVMs.ElementAt(i).StartDateDayMonth.ToString("MMM")</span></a></h3>
+                                </div>
+                                <div class="event-content text-left">
+                                    <div class="event-content-left">
+                                        <h4><a asp-controller="Event" asp-action="EventDetails" asp-route-id="@Model.EventVMs.ElementAt(i).Id">@Model.EventVMs.ElementAt(i).EventName</a></h4>
+                                        <ul>
+                                            <li><i class="fa fa-clock-o"></i>@Model.EventVMs.ElementAt(i).StartTime.ToString("h:mm tt")  - @Model.EventVMs.ElementAt(i).EndTime.ToString("h:mm tt")</li>
+                                            <li><i class="fa fa-map-marker"></i>@Model.EventVMs.ElementAt(i).Venue</li>
+                                        </ul>
+                                    </div>
+                                    <div class="event-content-right">
+                                        <a class="default-btn" asp-controller="Event" asp-action="EventDetails" asp-route-id="@Model.EventVMs.ElementAt(i).Id">join now</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            counter++;
+
+
+
+                        }
+                        else
+                        {
+                            counter++;
+
+                            break;
+
+                        }
+
+                    }
+                </div>
+            } while (counter-1 != Model.EventVMs.Count());
+
+       
+        </div>
+    </div>
+</div>
+<!-- Event Area End -->
+<!-- Testimonial Area Start -->
+<div class="testimonial-area pt-110 pb-105 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="testimonial-owl owl-theme owl-carousel">
+                @foreach (Testimonial item in Model.Testimonials)
+                {
+                    <div class="col-md-8 col-md-offset-2 col-sm-12">
+                        <div class="single-testimonial">
+                            <div class="testimonial-info">
+                                <div class="testimonial-img">
+                                    <img src="img/testimonial/@item.Image" alt="testimonial">
+                                </div>
+                                <div class="testimonial-content">
+                                    <p>@item.Description</p>
+                                    <h4>@item.FullName</h4>
+                                    <h5>@item.Profession</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial Area End -->
+<!-- Blog Area Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="img/icon/section.png" alt="section-title">
+                    <h2>LATEST FROM BLOG</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (BlogVM item in Model.BlogVMs)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog mb-60">
+                        <div class="blog-img">
+                            <a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@item.Id"><img src="~/img/blog/@item.Image" alt="blog"></a>
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>By @item.Name  /  @item.Date.ToString("MMMM d, yyyy")  /  <i class="fa fa-comments-o"></i> @item.CommentCount</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2><a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@item.Id">@item.BlogContent </a></h2>
+                                <a asp-controller="Blog" asp-action="BlogDetails" asp-route-id="@item.Id">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+         
+        </div>
+    </div>
+</div>
+<!-- Blog Area End -->
+<!-- Subscribe Start -->
+<div class="subscribe-area pt-60 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="subscribe-content section-title text-center">
+                    <h2>subscribe our newsletter</h2>
+                    <p>I must explain to you how all this mistaken idea </p>
+                </div>
+                <div class="newsletter-form mc_embed_signup">
+                    <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll" class="mc-form">
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                            <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
+                        </div>
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div>
+                    <!-- mailchimp-alerts end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->

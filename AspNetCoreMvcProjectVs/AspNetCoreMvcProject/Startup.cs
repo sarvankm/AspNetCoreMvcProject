@@ -40,8 +40,6 @@ namespace AspNetCoreMvcProject
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
-                
             }
 
             app.UseRouting();
@@ -51,7 +49,7 @@ namespace AspNetCoreMvcProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Course}/{action=Index}/{Id?}"
+                    pattern: "{controller=Home}/{action=Index}/{Id?}"
                     );
             });
         }

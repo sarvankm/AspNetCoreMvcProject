@@ -47,50 +47,49 @@ namespace AspNetCoreMvcProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Comment(int? id, Blog Comment)
+        public async Task<IActionResult> Comment(int? id, CommentFormVM Comment)
         {
-
-            foreach (CommentForm comment in Comment.CommentForms)
+            if (string.IsNullOrEmpty(Comment.Name))
             {
-
-                if (string.IsNullOrEmpty(comment.Name))
-                {
-                    ModelState.AddModelError("", "The Form was't sent correctly");
-                    return RedirectToAction("BlogDetails");
-                }
-                if (string.IsNullOrEmpty(comment.Email))
-                {
-                    ModelState.AddModelError("", "The Form was't sent correctly");
-                    return RedirectToAction("BlogDetails");
-                }
-                if (string.IsNullOrEmpty(comment.Massage))
-                {
-                    ModelState.AddModelError("", "The Form was't sent correctly");
-                    return RedirectToAction("BlogDetails");
-                }
-                if (string.IsNullOrEmpty(comment.Subject))
-                {
-                    ModelState.AddModelError("", "The Form was't sent correctly");
-                    return RedirectToAction("BlogDetails");
-                }
-                if (id == null) return NotFound();
-
-                Blog blog = await _db.Blogs.FindAsync(id);
-
-                if (blog == null) return NotFound();
-
-                blog.CommentCount++;
-                comment.BlogId = (int)id;
-
-                await _db.CommentForms.AddAsync(comment);
-
-
-                await _db.SaveChangesAsync();
-
+                ModelState.AddModelError("", "The Form was't sent correctly");
+                return RedirectToAction("BlogDetails");
             }
-            
-                return RedirectToAction(nameof(Index));
+            if (string.IsNullOrEmpty(Comment.Email))
+            {
+                ModelState.AddModelError("", "The Form was't sent correctly");
+                return RedirectToAction("BlogDetails");
+            }
+            if (string.IsNullOrEmpty(Comment.Massage))
+            {
+                ModelState.AddModelError("", "The Form was't sent correctly");
+                return RedirectToAction("BlogDetails");
+            }
+            if (string.IsNullOrEmpty(Comment.Subject))
+            {
+                ModelState.AddModelError("", "The Form was't sent correctly");
+                return RedirectToAction("BlogDetails");
+            }
+            if (id == null) return NotFound();
 
+            Blog blog = await _db.Blogs.FindAsync(id);
+
+            if (blog == null) return NotFound();
+
+            blog.CommentCount++;
+
+            CommentForm commentForm = new CommentForm
+            {
+                BlogId = (int)id,
+                Email = Comment.Email,
+                Massage = Comment.Massage,
+                Name = Comment.Name,
+                Subject = Comment.Subject
+            };
+
+            await _db.CommentForms.AddAsync(commentForm);
+            await _db.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -38,31 +38,27 @@
                         <h3>LEAVE A REPLY</h3>
                         <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                        
                         <form id="contact-form" asp-action="Comment" method="post">
                             <div class="row">
-                              
+                                <input type="hidden" name="id" value="@Model.Id" />
                                 <div class="col-md-12">
                                     <p>Name</p>
-                                    <input  asp-for="CommentForms">
+                                    <input  name="Name">
                                 </div>
-	                             
-                                
                                 <div class="col-md-12">
                                     <p>Email</p>
-                                    <input asp-for="CommentForms">
+                                    <input name="Email" >
                                 </div>
                                 <div class="col-md-12">
                                     <p>Subject</p>
-                                    <input asp-for="CommentForms">
+                                    <input name="Subject" >
                                     <p>Massage</p>
-                                    <textarea cols="15" rows="10" asp-for="CommentForms"></textarea>
+                                    <textarea cols="15" rows="10" name="Massage" ></textarea>
                                 </div>
                             </div>
-                            <button class="reply-btn" data-text="send"><span>send message</span></button>
-                            <p class="form-messege"></p>
+                            <button type="submit" class="reply-btn" data-text="send"><span>send message</span></button>
+                            @*<p class="form-messege"></p>*@
                         </form>
-
                     </div>
                 </div>
             </div>

@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20210424091817_AddedAboutCourse.Designer.cs" />
     <Compile Remove="Migrations\20210424091920_AddedAboutCourse.cs" />
     <Compile Remove="Migrations\20210424091920_AddedAboutCourse.Designer.cs" />
+    <Compile Remove="Migrations\20210426104012_Test.cs" />
+    <Compile Remove="Migrations\20210426104012_Test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

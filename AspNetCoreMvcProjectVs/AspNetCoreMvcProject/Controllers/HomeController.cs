@@ -18,7 +18,7 @@ namespace AspNetCoreMvcProject.Controllers
         }
         public IActionResult Index()
         {
-            List<Course> courses = _db.CourseCards.ToList();
+            List<Course> courses = _db.Courses.ToList();
 
             List<CourseVM> courseVMs = new List<CourseVM>();
             foreach (Course item in courses)

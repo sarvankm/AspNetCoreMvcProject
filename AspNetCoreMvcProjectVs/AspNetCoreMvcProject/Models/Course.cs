@@ -42,7 +42,9 @@ namespace AspNetCoreMvcProject.Models
         [Required]
         public int Price { get; set; }
 
-
+        public bool IsDeleted { get; set; }
+        [NotMapped, Required]
+        public IFormFile File { get; set; }
 
     }
 }

@@ -11,7 +11,7 @@ namespace AspNetCoreMvcProject.DAL
     public class Database:DbContext
     {
         public Database(DbContextOptions<Database> options) : base(options){ }
-        public DbSet<Course> CourseCards { get; set; }
+        public DbSet<Course> Courses { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<EventSpeaker> EventSpeakers { get; set; }

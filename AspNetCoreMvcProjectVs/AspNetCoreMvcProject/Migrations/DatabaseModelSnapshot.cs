@@ -174,6 +174,9 @@ namespace AspNetCoreMvcProject.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Language")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -193,7 +196,7 @@ namespace AspNetCoreMvcProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CourseCards");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("AspNetCoreMvcProject.Models.Event", b =>

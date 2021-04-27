@@ -18,7 +18,7 @@ namespace AspNetCoreMvcProject.Controllers
         }
         public IActionResult Index()
         {
-            List<Course> courses = _db.CourseCards.ToList();
+            List<Course> courses = _db.Courses.ToList();
 
             List<CourseVM> courseVMs = new List<CourseVM>();
             foreach (Course item in courses)
@@ -37,7 +37,7 @@ namespace AspNetCoreMvcProject.Controllers
         public async Task<IActionResult> CourseDetails(int? id)
         {
             
-            return View(await _db.CourseCards.FindAsync(id));
+            return View(await _db.Courses.FindAsync(id));
         }
     }
 }

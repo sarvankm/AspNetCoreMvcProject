@@ -26,6 +26,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         {
             return View(_db.Courses);
         }
+
         public IActionResult Create()
         {
             return View();
@@ -66,6 +67,14 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+            Course course = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            if (course == null) return NotFound();
+            return View(course);
         }
 
 

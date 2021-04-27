@@ -1,0 +1,107 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark" >
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        CourseName
+                    </th>
+                    <th>
+                        Language
+                    </th>
+                    <th>
+                        Assesments
+                    </th>
+                    <th>
+                        SkillLevel
+                    </th>
+                    <th>
+                        ClassDuration
+                    </th>
+                    <th>
+                        Duration
+                    </th>
+                    <th>
+                        CourseContent
+                    </th>
+                    <th>
+                        AboutCourse
+                    </th>
+                    <th>
+                        Certification
+                    <th>
+                        StartDate
+                    </th>
+                    <th>
+                        StudentsCount
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                    <td>
+                        <img src="~/img/course/@Model.Image" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Model.CourseName
+                    </td>
+                    <td>
+                        @Model.Language
+                    </td>
+                    <td>
+                        @Model.Assesments
+                    </td>
+                    <td>
+                        @Model.SkillLevel
+                    </td>
+                    <td>
+                        @Model.ClassDuration
+                    </td>
+                    <td>
+                        @Model.Duration
+                    </td>
+                    <td>
+                        @Model.CourseContent
+                    </td>
+                    <td>
+                        @Model.AboutCourse
+                    </td>
+                    <td>
+                        @Model.Certification
+                    </td>
+                    <td>
+                        @Model.StartDate
+                    </td>
+                    <td>
+                        @Model.StudentsCount
+                    </td>
+                    <td>
+                        @Model.Price
+                    </td>
+                    <td>
+                        @Model.IsDeleted
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

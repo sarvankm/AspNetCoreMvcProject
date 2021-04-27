@@ -1,6 +1,7 @@
 ﻿using AspNetCoreMvcProject.DAL;
 using AspNetCoreMvcProject.Models;
 using FrontToBack.Extensions;
+using FrontToBack.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -35,7 +36,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Course course)
         {
-            Course checkCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.CourseName == course.CourseName);
+            Course checkCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim());
 
             if (checkCourse != null)
             {
@@ -77,6 +78,91 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             return View(course);
         }
 
+        public async Task<IActionResult> Update(int? id)
+        {
+            if (id == null) return NotFound();
+            Course course = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            if (course == null) return NotFound();
+            return View(course);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id,Course course)
+        {
+            if (id == null) return NotFound();
+            Course dbCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            if (dbCourse == null) return NotFound();
 
+            Course checkCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim() && c.Id !=id);
+
+            if (checkCourse != null)
+            {
+                ModelState.AddModelError("CourseName", "This name already exist !");
+                return View();
+            }
+            if (ModelState["File"].ValidationState == ModelValidationState.Invalid)
+            {
+                ModelState.AddModelError("", "Please choose image !");
+                return View();
+            }
+
+            if (!course.File.IsImage())
+            {
+                ModelState.AddModelError("File", $"In this {course.File.FileName} name file format not correct !");
+                return View();
+            }
+
+            if (course.File.CheckFileSize(2000))
+            {
+                ModelState.AddModelError("File", $" In this {course.File.FileName} name file size is greater than 150 kb !");
+                return View();
+            }
+
+            Helper.DeleteFile(_env.WebRootPath, "img/course", dbCourse.Image);
+
+            dbCourse.AboutCourse = course.AboutCourse;
+            dbCourse.Assesments = course.Assesments;
+            dbCourse.Certification = course.Certification;
+            dbCourse.ClassDuration = course.ClassDuration;
+            dbCourse.Duration = course.Duration;
+            dbCourse.CourseContent = course.CourseContent;
+            dbCourse.AboutCourse = course.AboutCourse;
+            dbCourse.HowToApply = course.HowToApply;
+            dbCourse.Language = course.Language;
+            dbCourse.Price = course.Price;
+            dbCourse.SkillLevel = course.SkillLevel;
+            dbCourse.StartDate = course.StartDate;
+            dbCourse.StudentsCount = course.StudentsCount;
+            dbCourse.CourseName = course.CourseName;
+            dbCourse.Image = await course.File.SaveFileAsync(_env.WebRootPath, "img/course");
+
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Course course = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            if (course == null) return NotFound();
+            return View(course);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteCourse(int? id)
+        {
+            if (id == null) return NotFound();
+            Course dbCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
+            if (dbCourse == null) return NotFound();
+            Helper.DeleteFile(_env.WebRootPath, "img/course", dbCourse.Image);
+
+            _db.Courses.Remove(dbCourse);
+           await _db.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

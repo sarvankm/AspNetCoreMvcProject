@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Event>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        EventName
+                    </th>
+                    <th>
+                        Venue
+                    </th>
+                    <th>
+                        StartTime
+                    </th>
+                    <th>
+                        EndTime
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Event item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/img/event/@item.Image" alt="Alternate Text" />
+                        </td>
+                        <td>
+                            @item.EventName
+                        </td>
+                        <td>
+                            @item.Venue
+                        </td>
+                        <td>
+                            @item.StartTime.ToString("h:mm tt")
+                        </td>
+                        <td>
+                            @item.EndTime.ToString("h:mm tt")
+                        </td>
+                        <td>
+                            @item.IsDeleted
+                        </td>
+                        <td>
+                            <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
+                                Detail
+                            </a>
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                                Update
+                            </a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

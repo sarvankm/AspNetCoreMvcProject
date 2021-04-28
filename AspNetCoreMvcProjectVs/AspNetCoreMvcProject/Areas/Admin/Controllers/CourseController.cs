@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -118,7 +119,9 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
                 return View();
             }
 
-            Helper.DeleteFile(_env.WebRootPath, "img/course", dbCourse.Image);
+            string folder = Path.Combine("img", "course");
+
+            Helper.DeleteFile(_env.WebRootPath, folder, dbCourse.Image);
 
             dbCourse.AboutCourse = course.AboutCourse;
             dbCourse.Assesments = course.Assesments;
@@ -134,7 +137,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             dbCourse.StartDate = course.StartDate;
             dbCourse.StudentsCount = course.StudentsCount;
             dbCourse.CourseName = course.CourseName;
-            dbCourse.Image = await course.File.SaveFileAsync(_env.WebRootPath, "img/course");
+            dbCourse.Image = await course.File.SaveFileAsync(_env.WebRootPath, folder);
 
             await _db.SaveChangesAsync();
 
@@ -157,10 +160,12 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             if (id == null) return NotFound();
             Course dbCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
             if (dbCourse == null) return NotFound();
-            Helper.DeleteFile(_env.WebRootPath, "img/course", dbCourse.Image);
+            string folder = Path.Combine("img", "course");
 
-            _db.Courses.Remove(dbCourse);
-           await _db.SaveChangesAsync();
+            Helper.DeleteFile(_env.WebRootPath, folder, dbCourse.Image);
+
+            dbCourse.IsDeleted = true;
+            await _db.SaveChangesAsync();
 
             return RedirectToAction("Index");
         }

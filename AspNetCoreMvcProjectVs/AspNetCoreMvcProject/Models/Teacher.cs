@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -40,7 +42,9 @@ namespace AspNetCoreMvcProject.Models
         public string OwnVimeo { get; set; }
         [Required]
         public string OwnTwitter { get; set; }
-       
+        [NotMapped,Required]
+        public IFormFile File { get; set; }
+        public bool IsDeleted { get; set; }
         [Required]
         public Skills Skills { get; set; }
     }

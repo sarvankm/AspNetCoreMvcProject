@@ -468,3 +468,9 @@ C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreM
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Course\Details.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Course\Update.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Course\Delete.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Index.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Create.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Details.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Update.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Event\Delete.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Teacher\Index.cshtml.g.cs

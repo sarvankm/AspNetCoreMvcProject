@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,9 @@ namespace AspNetCoreMvcProject.Models
         public string BlogContent { get; set; }
         [Required]
         public string Description { get; set; }
+        [NotMapped,Required]
+        public IFormFile File { get; set; }
+        public bool IsDeleted { get; set; }
         [Required]
         public virtual ICollection<CommentForm> CommentForms { get; set; }
 

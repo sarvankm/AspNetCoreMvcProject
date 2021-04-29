@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Blog>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Blog item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/img/blog/@item.Image" alt="Alternate Text" />
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Date
+                        </td>
+                        <td>
+                            @item.IsDeleted
+                        </td>
+                       
+                        <td>
+                            <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
+                                Detail
+                            </a>
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                                Update
+                            </a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+

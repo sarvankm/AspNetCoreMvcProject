@@ -37,9 +37,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Course course)
         {
-            Course checkCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim());
-
-            if (checkCourse != null)
+            if (!(await _db.Courses.AnyAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim())))
             {
                 ModelState.AddModelError("CourseName", "This name already exist !");
                 return View();
@@ -94,9 +92,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             Course dbCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
             if (dbCourse == null) return NotFound();
 
-            Course checkCourse = await _db.Courses.FirstOrDefaultAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim() && c.Id !=id);
-
-            if (checkCourse != null)
+            if (await _db.Courses.AnyAsync(c => c.IsDeleted == false && c.CourseName.ToLower().Trim() == course.CourseName.ToLower().Trim() && c.Id==course.Id))
             {
                 ModelState.AddModelError("CourseName", "This name already exist !");
                 return View();

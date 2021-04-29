@@ -37,11 +37,9 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Event events)
         {
-            Event checkEvent = await _db.Events.FirstOrDefaultAsync(c => c.IsDeleted == false && c.EventName.ToLower().Trim() == events.EventName.ToLower().Trim());
-
-            if (checkEvent != null)
+            if (await _db.Events.AnyAsync(c => c.IsDeleted == false && c.EventName.ToLower().Trim() == events.EventName.ToLower().Trim() && c.Id == events.Id))
             {
-                ModelState.AddModelError("CourseName", "This name already exist !");
+                ModelState.AddModelError("EventName", "This name already exist !");
                 return View();
             }
             if (ModelState["File"].ValidationState == ModelValidationState.Invalid)
@@ -61,8 +59,9 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
                 ModelState.AddModelError("File", $" In this {events.File.FileName} name file size is greater than 150 kb !");
                 return View();
             }
+            string folder = Path.Combine("img", "event");
 
-            events.Image = await events.File.SaveFileAsync(_env.WebRootPath, "img/event");
+            events.Image = await events.File.SaveFileAsync(_env.WebRootPath, folder);
 
             await _db.Events.AddAsync(events);
 
@@ -93,9 +92,8 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             Event dbEvent = await _db.Events.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);
             if (dbEvent == null) return NotFound();
 
-            Event checkEvent = await _db.Events.FirstOrDefaultAsync(e => e.IsDeleted == false && e.EventName.ToLower().Trim() == events.EventName.ToLower().Trim() && e.Id != id);
 
-            if (checkEvent != null)
+            if (!(await _db.Events.AnyAsync(c => c.IsDeleted == false && c.EventName.ToLower().Trim() == events.EventName.ToLower().Trim())))
             {
                 ModelState.AddModelError("CourseName", "This name already exist !");
                 return View();

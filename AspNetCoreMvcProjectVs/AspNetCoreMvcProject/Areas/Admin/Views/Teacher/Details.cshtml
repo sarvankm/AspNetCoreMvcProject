@@ -1,0 +1,105 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        FullName
+                    </th>
+                    <th>
+                        Degree
+                    </th>
+                    <th>
+                        Experience
+                    </th>
+                    <th>
+                        Hobbies
+                    </th>
+                    <th>
+                        Faculty
+                    </th>
+                    <th>
+                        ContactInfoMail
+                    </th>
+                    <th>
+                        ContactInfoSkype
+                    </th>
+                    <th>
+                        ContactInfoNumber
+                    </th>
+                    <th>
+                        OwnFacebook
+                    <th>
+                        OwnPinterest
+                    </th>
+                    <th>
+                        OwnVimeo
+                    </th>
+                    <th>
+                        OwnTwitter
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+                        <img src="~/img/teacher/@Model.Image" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Model.FullName
+                    </td>
+                    <td>
+                        @Model.Degree
+                    </td>
+                    <td>
+                        @Model.Experience
+                    </td>
+                    <td>
+                        @Model.Hobbies
+                    </td>
+                    <td>
+                        @Model.Faculty
+                    </td>
+                    <td>
+                        @Model.ContactInfoMail
+                    </td>
+                    <td>
+                        @Model.ContactInfoSkype
+                    </td>
+                    <td>
+                        @Model.ContactInfoNumber
+                    </td>
+                    <td>
+                        @Model.OwnFacebook
+                    </td>
+                    <td>
+                        @Model.OwnPinterest
+                    </td>
+                    <td>
+                        @Model.OwnVimeo
+                    </td>
+                    <td>
+                        @Model.OwnTwitter
+                    </td>
+                    <td>
+                        @Model.IsDeleted
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

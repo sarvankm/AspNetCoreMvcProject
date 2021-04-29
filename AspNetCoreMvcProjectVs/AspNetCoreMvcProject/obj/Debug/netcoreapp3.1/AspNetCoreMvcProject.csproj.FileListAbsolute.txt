@@ -482,3 +482,9 @@ C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreM
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Details.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Update.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Index.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Create.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Details.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Update.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Delete.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Delete.cshtml.g.cs

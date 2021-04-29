@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model Contact
 @{
     ViewData["Title"] = "Create";
 }
@@ -11,24 +11,14 @@
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label asp-for="Name"></label>
-                        <input class="form-control" asp-for="Name">
-                        <span class="text-danger" asp-validation-for="Name"></span>
+                        <label asp-for="Street"></label>
+                        <input class="form-control" asp-for="Street">
+                        <span class="text-danger" asp-validation-for="Street"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Date"></label>
-                        <input class="form-control" asp-for="Date">
-                        <span class="text-danger" asp-validation-for="Date"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="BlogContent"></label>
-                        <textarea rows="4" class="form-control" asp-for="BlogContent"></textarea>
-                        <span class="text-danger" asp-validation-for="BlogContent"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Description"></label>
-                        <textarea rows="4" class="form-control" asp-for="Description"></textarea>
-                        <span class="text-danger" asp-validation-for="Description"></span>
+                        <label asp-for="CountryCity"></label>
+                        <input class="form-control" asp-for="CountryCity">
+                        <span class="text-danger" asp-validation-for="CountryCity"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="File"></label>
@@ -46,6 +36,5 @@
 @section Scripts{
     <partial name="_Validation" />
 }
-
 
 

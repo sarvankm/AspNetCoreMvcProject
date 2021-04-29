@@ -36,7 +36,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Blog blog)
         {
-            if (!(await _db.Blogs.AnyAsync(b => b.IsDeleted == false && b.Name.ToLower().Trim() == blog.Name.ToLower().Trim())))
+            if (await _db.Blogs.AnyAsync(b => b.IsDeleted == false && b.Name.ToLower().Trim() == blog.Name.ToLower().Trim()))
             {
                 ModelState.AddModelError("Name", "This name already exist !");
                 return View();
@@ -140,7 +140,7 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
-        public async Task<IActionResult> DeleteCourse(int? id)
+        public async Task<IActionResult> DeleteBlog(int? id)
         {
             if (id == null) return NotFound();
             Blog dbBlog = await _db.Blogs.FirstOrDefaultAsync(c => c.IsDeleted == false && c.Id == id);

@@ -1,0 +1,50 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="~/img/blog/@Model.Image" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Model.Name
+                    </td>
+                    <td>
+                        @Model.Date
+                    </td>
+                    <td>
+                        @Model.IsDeleted
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<form class="forms-sample" method="post" enctype="multipart/form-data">
+    <button type="submit" class="btn btn-danger mr-2">Delete</button>
+    <a class="btn btn-light" asp-controller="Dashboard" asp-action="Index">Cancel</a>
+</form>
+

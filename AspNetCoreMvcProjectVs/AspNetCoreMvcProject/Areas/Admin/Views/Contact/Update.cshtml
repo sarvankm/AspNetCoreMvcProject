@@ -1,0 +1,39 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create New Course</h4>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Street"></label>
+                        <input class="form-control" asp-for="Street">
+                        <span class="text-danger" asp-validation-for="Street"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CountryCity"></label>
+                        <input class="form-control" asp-for="CountryCity">
+                        <span class="text-danger" asp-validation-for="CountryCity"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="File"></label>
+                        <input class="form-control" asp-for="File" accept="image/*">
+                        <span class="text-danger" asp-validation-for="File"></span>
+                    </div>
+                    <button type="submit" class="btn btn-warning mr-2">Update</button>
+                    <a class="btn btn-light" asp-controller="Dashboard" asp-action="Index">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+}
+

@@ -1,8 +1,7 @@
-﻿@model Contact
+﻿@model AboutCourse
 @{
     ViewData["Title"] = "Delete";
 }
-
 
 <div class="row">
     <div class="table-responsive pt-3">
@@ -13,10 +12,10 @@
                         Image
                     </th>
                     <th>
-                        Street
+                        Heading
                     </th>
                     <th>
-                        CountryCity
+                        Description
                     </th>
                     <th>
                         IsDeleted
@@ -26,13 +25,13 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="~/img/contact/@Model.Image" alt="Alternate Text" />
+                        <img src="~/img/about/@Model.Image" alt="Alternate Text" />
                     </td>
                     <td>
-                        @Model.Street
+                        @Html.Raw(Model.Heading)
                     </td>
                     <td>
-                        @Model.CountryCity
+                        @Model.Description
                     </td>
                     <td>
                         @Model.IsDeleted

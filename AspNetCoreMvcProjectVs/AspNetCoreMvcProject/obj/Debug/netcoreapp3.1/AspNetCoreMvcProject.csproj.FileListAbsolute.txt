@@ -493,3 +493,13 @@ C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreM
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCourse\Update.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCourse\Delete.cshtml.g.cs
 C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutCourse\Index.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Testimonial\Index.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Testimonial\Create.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Testimonial\Details.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Testimonial\Update.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Testimonial\Delete.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Notice\Index.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Notice\Create.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Notice\Details.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Notice\Update.cshtml.g.cs
+C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Notice\Delete.cshtml.g.cs

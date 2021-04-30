@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Notice>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="table-responsive pt-3">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        VideoLink
+                    </th>
+                    <th>
+                        NoticeDate
+                    </th>
+                    <th>
+                        NoticeText
+                    </th>
+                    <th>
+                        IsDeleted
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Notice item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.VideoLink
+                        </td>
+                        <td>
+                            @item.NoticeDate
+                        </td>
+                        <td>
+                            @item.NoticeText
+                        </td>
+                        <td>
+                            @item.IsDeleted
+                        </td>
+
+                        <td>
+                            <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
+                                Detail
+                            </a>
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                                Update
+                            </a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

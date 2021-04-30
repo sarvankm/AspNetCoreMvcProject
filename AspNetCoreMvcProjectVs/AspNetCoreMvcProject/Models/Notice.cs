@@ -11,6 +11,8 @@ namespace AspNetCoreMvcProject.Models
         public string VideoLink { get; set; }
         public DateTime NoticeDate { get; set; }
         public string NoticeText { get; set; }
+        public bool IsDeleted { get; set; }
+
 
     }
 }

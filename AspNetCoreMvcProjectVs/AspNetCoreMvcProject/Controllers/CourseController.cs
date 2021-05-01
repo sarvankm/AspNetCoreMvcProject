@@ -39,5 +39,12 @@ namespace AspNetCoreMvcProject.Controllers
             
             return View(await _db.Courses.FindAsync(id));
         }
+        public async Task<IActionResult> Form(Form form)
+        {
+            if (!ModelState.IsValid) return View();
+            await _db.Forms.AddAsync(form);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

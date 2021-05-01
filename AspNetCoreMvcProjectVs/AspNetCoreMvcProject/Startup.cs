@@ -31,6 +31,20 @@ namespace AspNetCoreMvcProject
             {
                 options.UseSqlServer(_configuration.GetConnectionString("default"));
             });
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.AllowedForNewUsers = true;
+
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<Database>().AddDefaultTokenProviders();
 
             
         }
@@ -44,7 +58,8 @@ namespace AspNetCoreMvcProject
 
             app.UseRouting();
             app.UseStaticFiles();
-           
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 app.UseEndpoints(routes =>

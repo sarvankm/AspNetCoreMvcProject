@@ -1,4 +1,5 @@
 ﻿using AspNetCoreMvcProject.DAL;
+using AspNetCoreMvcProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,15 @@ namespace AspNetCoreMvcProject.Controllers
         {
            
             return View(_db.Contacts);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Form(Form form)
+        {
+            if (!ModelState.IsValid) return View();
+            await _db.Forms.AddAsync(form);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }

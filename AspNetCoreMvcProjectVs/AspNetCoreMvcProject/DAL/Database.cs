@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreMvcProject.DAL
 {
-    public class Database:DbContext
+    public class Database:IdentityDbContext<User>
     {
         public Database(DbContextOptions<Database> options) : base(options){ }
         public DbSet<Course> Courses { get; set; }
@@ -25,7 +25,6 @@ namespace AspNetCoreMvcProject.DAL
         public DbSet<Notice> Notices { get; set; }
         public DbSet<HomeSlider> HomeSliders { get; set; }
         public DbSet<ShortInfo> ShortInfos { get; set; }
-
-
+        public DbSet<Form> Forms { get; set; }
     }
 }

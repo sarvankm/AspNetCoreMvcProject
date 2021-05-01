@@ -43,5 +43,12 @@ namespace AspNetCoreMvcProject.Controllers
         {
             return View(await _db.Events.Include(e=>e.EventSpeakers).ThenInclude(es=>es.Speaker).FirstOrDefaultAsync(e=>e.Id==id));
         }
+        public async Task<IActionResult> Form(Form form)
+        {
+            if (!ModelState.IsValid) return View();
+            await _db.Forms.AddAsync(form);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

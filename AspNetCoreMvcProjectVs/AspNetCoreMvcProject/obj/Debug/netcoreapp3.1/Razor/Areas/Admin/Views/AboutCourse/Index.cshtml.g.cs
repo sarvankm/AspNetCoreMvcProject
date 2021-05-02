@@ -19,8 +19,15 @@ using AspNetCoreMvcProject.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\IDEAPAD\Desktop\AspNetCoreMvcProject\AspNetCoreMvcProjectVs\AspNetCoreMvcProject\Areas\Admin\Views\_ViewImports.cshtml"
+using AspNetCoreMvcProject.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70e6c4bd5c7e986aa8a524e77093f6b97444fe45", @"/Areas/Admin/Views/AboutCourse/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"75e18b604114ee7349f60d4f6665ac99c9294696", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"08d22cfd98cafca0c411884ba5eeaa62faee4c0b", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_AboutCourse_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<AboutCourse>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString("Alternate Text"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -91,7 +98,7 @@ using AspNetCoreMvcProject.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                    <tr>\r\n                        <td>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "70e6c4bd5c7e986aa8a524e77093f6b97444fe456724", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "70e6c4bd5c7e986aa8a524e77093f6b97444fe456972", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -131,7 +138,7 @@ AddHtmlAttributeValue("", 739, item.Image, 739, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n\r\n                        <td>\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe459222", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe459470", async() => {
                 WriteLiteral("\r\n                                Detail\r\n                            ");
             }
             );
@@ -163,7 +170,7 @@ AddHtmlAttributeValue("", 739, item.Image, 739, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe4511642", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe4511890", async() => {
                 WriteLiteral("\r\n                                Update\r\n                            ");
             }
             );
@@ -195,7 +202,7 @@ AddHtmlAttributeValue("", 739, item.Image, 739, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe4514062", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70e6c4bd5c7e986aa8a524e77093f6b97444fe4514310", async() => {
                 WriteLiteral("\r\n                                Delete\r\n                            ");
             }
             );

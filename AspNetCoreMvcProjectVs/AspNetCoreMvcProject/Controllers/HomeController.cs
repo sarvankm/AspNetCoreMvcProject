@@ -18,50 +18,50 @@ namespace AspNetCoreMvcProject.Controllers
         }
         public IActionResult Index()
         {
-            List<Course> courses = _db.Courses.ToList();
+            List<Course> courses = _db.Courses.Where(c => c.IsDeleted == false).ToList();
 
             List<CourseVM> courseVMs = new List<CourseVM>();
             foreach (Course item in courses)
             {
-                courseVMs.Add(new CourseVM
-                {
-                    Id = item.Id,
-                    CourseName = item.CourseName,
-                    Image = item.Image,
-                    CourseContent = item.CourseContent
-                });
+                    courseVMs.Add(new CourseVM
+                    {
+                        Id = item.Id,
+                        CourseName = item.CourseName,
+                        Image = item.Image,
+                        CourseContent = item.CourseContent
+                    });
             }
-            List<Event> events = _db.Events.ToList();
+            List<Event> events = _db.Events.Where(e => e.IsDeleted == false).ToList();
 
             List<EventVM> eventVMs = new List<EventVM>();
             foreach (Event item in events)
             {
-                eventVMs.Add(new EventVM
-                {
-                    Id = item.Id,
-                    EventName = item.EventName,
-                    StartTime = item.StartTime,
-                    EndTime = item.EndTime,
-                    Venue = item.Venue,
-                    Image = item.Image,
-                    StartDateDayMonth = item.StartDateDayMonth,
-                    EventSpeakers = item.EventSpeakers
-                });
+                    eventVMs.Add(new EventVM
+                    {
+                        Id = item.Id,
+                        EventName = item.EventName,
+                        StartTime = item.StartTime,
+                        EndTime = item.EndTime,
+                        Venue = item.Venue,
+                        Image = item.Image,
+                        StartDateDayMonth = item.StartDateDayMonth,
+                        EventSpeakers = item.EventSpeakers
+                    });
             }
-            List<Blog> blogs = _db.Blogs.ToList();
+            List<Blog> blogs = _db.Blogs.Where(b => b.IsDeleted == false).ToList();
 
             List<BlogVM> blogVMs = new List<BlogVM>();
             foreach (Blog item in blogs)
             {
-                blogVMs.Add(new BlogVM
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Date = item.Date,
-                    Image = item.Image,
-                    CommentCount = item.CommentCount,
-                    BlogContent = item.BlogContent
-                });
+                    blogVMs.Add(new BlogVM
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Date = item.Date,
+                        Image = item.Image,
+                        CommentCount = item.CommentCount,
+                        BlogContent = item.BlogContent
+                    });
             }
             return View(new HomeVM 
             {

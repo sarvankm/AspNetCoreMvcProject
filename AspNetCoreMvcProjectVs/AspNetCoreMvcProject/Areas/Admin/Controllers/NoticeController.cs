@@ -1,6 +1,7 @@
 ﻿using AspNetCoreMvcProject.DAL;
 using AspNetCoreMvcProject.Models;
 using FrontToBack.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ using System.Threading.Tasks;
 namespace AspNetCoreMvcProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class NoticeController : Controller
     {
         private readonly IWebHostEnvironment _env;
@@ -22,9 +25,20 @@ namespace AspNetCoreMvcProject.Areas.Admin.Controllers
             _db = db;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            return View(_db.Notices);
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.Notices.Count() / 8);
+
+            if (page == null)
+            {
+                ViewBag.Page = 1;
+                return View(_db.Notices.OrderByDescending(p => p.Id).Take(8));
+            }
+            else
+            {
+                ViewBag.Page = page;
+                return View(_db.Notices.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 8).Take(8));
+            }
         }
         public IActionResult Create()
         {

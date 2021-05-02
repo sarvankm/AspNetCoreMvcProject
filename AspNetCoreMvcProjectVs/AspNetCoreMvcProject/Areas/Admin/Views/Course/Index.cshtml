@@ -32,40 +32,63 @@
             <tbody>
                 @foreach (Course item in Model)
                 {
-                <tr>
-                    <td>
-                        <img src="~/img/course/@item.Image" alt="Alternate Text" />
-                    </td>
-                    <td>
-                        @item.CourseName
-                    </td>
-                    <td>
-                        @item.Language
-                    </td>
-                    <td>
-                        @item.StudentsCount
-                    </td>
-                    <td>
-                        @item.Price
-                    </td>
-                    <td>
-                        @item.IsDeleted
-                    </td>
-                    <td>
-                        <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
-                            Detail
-                        </a>
-                        <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
-                            Update
-                        </a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            <img src="~/img/course/@item.Image" alt="Alternate Text" />
+                        </td>
+                        <td>
+                            @item.CourseName
+                        </td>
+                        <td>
+                            @item.Language
+                        </td>
+                        <td>
+                            @item.StudentsCount
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        <td>
+                            @item.IsDeleted
+                        </td>
+                        <td>
+                            <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">
+                                Detail
+                            </a>
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.Id">
+                                Update
+                            </a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
 
+<div class=" row mt-3 justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                if (ViewBag.Page == i)
+                {
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">@i</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-area="Admin" asp-controller="Course" asp-action="Index" asp-route-page="@i">
+                            @i
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </nav>
+</div>

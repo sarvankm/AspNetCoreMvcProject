@@ -19,7 +19,7 @@ namespace AspNetCoreMvcProject.Controllers
         }
         public  IActionResult Index()
         {
-            List<Teacher> teachers = _db.Teachers.ToList();
+            List<Teacher> teachers = _db.Teachers.Where(t => t.IsDeleted == false).ToList();
 
             List<TeacherVM> teacherVMs = new List<TeacherVM>();
             foreach (Teacher item in teachers)

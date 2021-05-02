@@ -17,26 +17,78 @@ namespace AspNetCoreMvcProject.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(string search,int? page)
         {
-            List<Teacher> teachers = _db.Teachers.ToList();
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.Teachers.Count() / 8);
 
-            List<TeacherVM> teacherVMs = new List<TeacherVM>();
-            foreach (Teacher item in teachers)
+            if (search != null)
             {
-                teacherVMs.Add(new TeacherVM
+                List<Teacher> teachers = _db.Teachers.Where(t => t.IsDeleted == false).ToList();
+
+                List<TeacherVM> teacherVMs = new List<TeacherVM>();
+                foreach (Teacher item in teachers)
                 {
-                    Id = item.Id,
-                    Image=item.Image,
-                    FullName=item.FullName,
-                    Profession=item.Profession,
-                    OwnFacebook=item.OwnFacebook,
-                    OwnPinterest=item.OwnPinterest,
-                    OwnTwitter=item.OwnTwitter,
-                    OwnVimeo=item.OwnVimeo
-                });
+                    teacherVMs.Add(new TeacherVM
+                    {
+                        Id = item.Id,
+                        Image = item.Image,
+                        FullName = item.FullName,
+                        Profession = item.Profession,
+                        OwnFacebook = item.OwnFacebook,
+                        OwnPinterest = item.OwnPinterest,
+                        OwnTwitter = item.OwnTwitter,
+                        OwnVimeo = item.OwnVimeo
+                    });
+                }
+             
+                if (page == null)
+                {
+                    ViewBag.Page = 1;
+                    IEnumerable<TeacherVM> model = teacherVMs
+                    .Where(t => t.FullName.ToLower().Contains(search.ToLower()))
+                    .OrderByDescending(c => c.Id).Take(8);
+                    return View(model);
+
+                }
+                else
+                {
+                    ViewBag.Page = page;
+                    IEnumerable<TeacherVM> model = teacherVMs
+                    .Where(t => t.FullName.ToLower().Contains(search.ToLower()))
+                    .OrderByDescending(c => c.Id).Skip(((int)page - 1) * 8).Take(8);
+                    return View(model);
+                }
             }
-            return View(teacherVMs);
+            else
+            {
+                List<Teacher> teachers = _db.Teachers.Where(t => t.IsDeleted == false).ToList();
+
+                List<TeacherVM> teacherVMs = new List<TeacherVM>();
+                foreach (Teacher item in teachers)
+                {
+                    teacherVMs.Add(new TeacherVM
+                    {
+                        Id = item.Id,
+                        Image = item.Image,
+                        FullName = item.FullName,
+                        Profession = item.Profession,
+                        OwnFacebook = item.OwnFacebook,
+                        OwnPinterest = item.OwnPinterest,
+                        OwnTwitter = item.OwnTwitter,
+                        OwnVimeo = item.OwnVimeo
+                    });
+                }
+                if (page == null)
+                {
+                    ViewBag.Page = 1;
+                    return View(teacherVMs.OrderByDescending(p => p.Id).Take(8));
+                }
+                else
+                {
+                    ViewBag.Page = page;
+                    return View(teacherVMs.OrderByDescending(p => p.Id).Skip(((int)page - 1) * 8).Take(8));
+                }
+            }
         }
         public async Task<IActionResult> TeacherDetails(int? id)
         {

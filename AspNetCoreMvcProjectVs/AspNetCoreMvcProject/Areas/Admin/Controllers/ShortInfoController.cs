@@ -1,5 +1,6 @@
 ﻿using AspNetCoreMvcProject.DAL;
 using AspNetCoreMvcProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 namespace AspNetCoreMvcProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class ShortInfoController : Controller
     {
         private readonly IWebHostEnvironment _env;

@@ -11,5 +11,7 @@ namespace AspNetCoreMvcProject.ViewModels
         public string CourseName { get; set; }
         public string CourseContent { get; set; }
         public string Image { get; set; }
+        public string Search { get; set; }
+
     }
 }

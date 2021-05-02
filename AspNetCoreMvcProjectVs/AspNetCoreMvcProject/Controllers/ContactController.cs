@@ -19,7 +19,7 @@ namespace AspNetCoreMvcProject.Controllers
         public IActionResult Index()
         {
            
-            return View(_db.Contacts);
+            return View(_db.Contacts.Where(c=>c.IsDeleted == false));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

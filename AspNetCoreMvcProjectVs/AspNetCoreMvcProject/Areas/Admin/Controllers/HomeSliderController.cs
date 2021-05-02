@@ -2,6 +2,7 @@
 using AspNetCoreMvcProject.Models;
 using FrontToBack.Extensions;
 using FrontToBack.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -13,6 +14,8 @@ using System.Threading.Tasks;
 namespace AspNetCoreMvcProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class HomeSliderController : Controller
     {
         private readonly IWebHostEnvironment _env;

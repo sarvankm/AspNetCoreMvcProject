@@ -13,15 +13,13 @@ namespace AspNetCoreMvcProject.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<User> _signInManager;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _signInManager = signInManager;
-        }
-        public IActionResult Index()
-        {
-            return View();
         }
         public IActionResult Register()
         {
@@ -50,7 +48,7 @@ namespace AspNetCoreMvcProject.Controllers
                 }
                 return View();
             }
-
+            await _userManager.AddToRoleAsync(user, "User");
             await _signInManager.SignInAsync(user, true);
 
             return RedirectToAction("Index", "Home");
@@ -90,11 +88,19 @@ namespace AspNetCoreMvcProject.Controllers
                 return View(loginVM);
             }
 
-            //var result = (await _userManager.GetRolesAsync(user))[0];
-            //if (result == "Admin")
-            //{
-            //    return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
-            //}
+            var role = (await _userManager.GetRolesAsync(user))[0];
+            if (role == "Admin")
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin" });
+            }
+            if (role == "Teacher")
+            {
+                return RedirectToAction("Index", "Course", new { area = "Admin" });
+            }
+            if (role == "Speaker")
+            {
+                return RedirectToAction("Index", "Event", new { area = "Admin" });
+            }
 
             return RedirectToAction("Index", "Home");
         }
@@ -103,5 +109,19 @@ namespace AspNetCoreMvcProject.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+        #region Create Role
+        public async Task CreateRole()
+        {
+            if (!await _roleManager.RoleExistsAsync("Admin"))
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
+            if (!await _roleManager.RoleExistsAsync("Teacher"))
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Teacher" });
+            if (!await _roleManager.RoleExistsAsync("Speaker"))
+                await _roleManager.CreateAsync(new IdentityRole { Name = "Speaker" });
+            if (!await _roleManager.RoleExistsAsync("User"))
+                await _roleManager.CreateAsync(new IdentityRole { Name = "User" });
+        }
+        #endregion
     }
 }
+
